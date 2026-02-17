@@ -139,4 +139,9 @@ model Address {
   postalCode  String
   phone       String
   orders      Order[]
+carts Cart?
+wishlists Wishlist?
+orders Order[]
+reviews Review[]
+
 }
