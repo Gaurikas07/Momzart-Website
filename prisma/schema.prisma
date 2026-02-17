@@ -25,6 +25,11 @@ model User {
   addresses    Address[]
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
+carts Cart?
+wishlists Wishlist?
+orders Order[]
+reviews Review[]
+
 }
 
 model Product {
@@ -41,6 +46,10 @@ model Product {
   orderItems  OrderItem[]
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
+cartItems CartItem[]
+wishlistItems WishlistProduct[]
+reviews Review[]
+
 }
 
 model ProductImage {
@@ -139,9 +148,5 @@ model Address {
   postalCode  String
   phone       String
   orders      Order[]
-carts Cart?
-wishlists Wishlist?
-orders Order[]
-reviews Review[]
 
 }
