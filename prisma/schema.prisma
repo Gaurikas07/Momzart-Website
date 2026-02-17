@@ -19,18 +19,17 @@ model User {
   passwordHash String?
   image        String?
   role         Role      @default(USER)
+
   orders       Order[]
   reviews      Review[]
   wishlist     Wishlist?
   addresses    Address[]
+  cart         Cart?
+
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
-carts Cart?
-wishlists Wishlist?
-orders Order[]
-reviews Review[]
-
 }
+
 
 model Product {
   id          String      @id @default(cuid())
@@ -41,16 +40,17 @@ model Product {
   rating      Float       @default(0)
   stock       Int
   category    String
-  images      ProductImage[]
-  reviews     Review[]
-  orderItems  OrderItem[]
+
+  images        ProductImage[]
+  reviews       Review[]
+  orderItems    OrderItem[]
+  cartItems     CartItem[]
+  wishlistItems WishlistProduct[]
+
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
-cartItems CartItem[]
-wishlistItems WishlistProduct[]
-reviews Review[]
-
 }
+
 
 model ProductImage {
   id        String  @id @default(cuid())
